@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService, AuthUserData } from '../auth.service';
-import { Router } from '@angular/router';
-
-interface IServerResponse {
-  data: AuthUserData;
-  success: string;
-}
 
 @Component({
   selector: 'app-login',
@@ -15,7 +8,7 @@ interface IServerResponse {
 })
 export class LoginComponent implements OnInit {
   userLoginForm: FormGroup;
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder) {
     this.createLoginForm();
   }
 
@@ -30,13 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.loginUser(this.userLoginForm.value).subscribe((response: IServerResponse) => {
-      this.authService.persistAuth(response.data);
-
-      this.authService.checkAuth();
-
-      this.router.navigateByUrl('/');
-    });
+    console.log(this.userLoginForm.value);
   }
 
 }
