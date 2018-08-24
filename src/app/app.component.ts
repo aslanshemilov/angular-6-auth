@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private auth: AuthService
+    public auth: AuthService
   ) {}
 
   ngOnInit() {

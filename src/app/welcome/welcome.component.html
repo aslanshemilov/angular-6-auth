@@ -1,7 +1,7 @@
 <div class="flex-center position-ref full-height">
   <div class="top-right links">
-    <a routerLink="/home">Hey bahdcoder</a>
-    <a routerLink="login">Login</a>
+    <a routerLink="/home" *ngIf="auth.isAuthenticated">Hey {{ auth.authUser.user.name }}</a>
+    <a routerLink="login" *ngIf="!auth.isAuthenticated">Login</a>
   </div>
 
   <div class="content">
