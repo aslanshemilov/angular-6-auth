@@ -23,6 +23,8 @@ export class AuthService {
     this.authUser = data;
     this.isAuthenticated = true;
     localStorage.setItem('auth', JSON.stringify(data));
+
+    this.router.navigateByUrl('/home');
   }
 
   checkAuth() {
